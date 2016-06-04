@@ -1,0 +1,17 @@
+* Launch the Kobuki base, cmd_vel_mux, velocity safety controller, and head dynamixels with temperature monitoring:
+
+  roslaunch pi_kobuki_bringup pi_kobuki.launch
+  
+* Launch move_base with a blank map:
+
+  roslaunch pi_kobuki_nav move_base_blank_map.launch
+  
+* Launch the Hydro OpenNI camera driver:
+
+  roslaunch rbx1_bringup openni_driver.launch
+  
+  Test with:
+  
+  rosrun image_view image_view image:=/camera/rgb/image_raw
+  
+* 

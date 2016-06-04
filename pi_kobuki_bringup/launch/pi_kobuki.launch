@@ -1,0 +1,29 @@
+<launch>
+
+   <include file="$(find pi_kobuki_bringup)/launch/pi_kobuki_minimal.launch" />
+   
+   <include file="$(find pi_kobuki_bringup)/launch/head_camera_dynamixels.launch" />
+
+   <include file="$(find pi_kobuki_bringup)/launch/yocs_safety_controller.launch" />
+   
+   <include file="$(find pi_kobuki_bringup)/launch/hokuyo.launch" />
+   
+   <!-- include file="$(find pi_kobuki_bringup)/launch/laser_filter.launch" /-->
+   
+   <include file="$(find pi_kobuki_bringup)/launch/auto_docking.launch" />
+   
+   <!-- include file="$(find openni2_launch)/launch/openni2.launch" / -->
+   
+  <!-- velocity smoother for navigation commands -->
+  <node pkg="nodelet" type="nodelet" name="navi_velocity_smoother" args="load yocs_velocity_smoother/VelocitySmootherNodelet /mobile_base_nodelet_manager">
+    <rosparam file="$(find pi_kobuki_bringup)/config/velocity_smoother.yaml" command="load"/>
+    <remap from="navi_velocity_smoother/smooth_cmd_vel" to="/cmd_vel_mux/input/navi"/>
+    <remap from="navi_velocity_smoother/raw_cmd_vel" to="navi_velocity_smoother/move_base_raw_cmd_vel"/>
+
+    <!-- Robot velocity feedbacks; use the one configured as base default -->
+    <remap from="navi_velocity_smoother/odometry" to="/odom"/>
+    <remap from="navi_velocity_smoother/robot_cmd_vel" to="/mobile_base/commands/velocity"/>
+  </node>
+
+</launch>
+  
