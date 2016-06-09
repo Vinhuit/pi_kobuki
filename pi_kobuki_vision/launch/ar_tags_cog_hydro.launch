@@ -1,7 +1,0 @@
-<launch>
-   <node pkg="pi_kobuki_vision" name="ar_tags_cog" type="ar_tags_cog_hydro.py" clear_params="true" output="screen">
-      <rosparam>
-         tag_ids: [0, 1]
-      </rosparam>
-   </node>
-</launch>

@@ -1,8 +1,0 @@
-<launch>
-  <!-- Launch move_base and load all navigation parameters -->
-  <include file="$(find pi_kobuki_nav)/launch/move_base.launch" />
-  
-  <!-- Run the map server with a blank map -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find pi_kobuki_nav)/maps/living_room.yaml" />
-
-</launch>

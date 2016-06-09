@@ -1,0 +1,21 @@
+<launch>
+
+   <include file="$(find piko_bringup)/launch/piko_minimal.launch" />
+   
+   <include file="$(find piko_bringup)/launch/head_camera_dynamixels.launch" />
+
+   <include file="$(find piko_bringup)/launch/yocs_safety_controller.launch" />
+   
+   <include file="$(find piko_bringup)/launch/navi_velocity_smoother.launch" />
+
+   <include file="$(find piko_bringup)/launch/hokuyo.launch" />
+   
+   <!-- include file="$(find piko_bringup)/launch/laser_filter.launch" /-->
+   
+   <include file="$(find piko_bringup)/launch/auto_docking.launch" />
+   
+   <!-- include file="$(find openni2_launch)/launch/openni2.launch" / -->
+  
+
+</launch>
+  
